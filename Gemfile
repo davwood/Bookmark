@@ -8,6 +8,7 @@ gem 'sinatra'
 gem 'pg'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
+gem 'rack-flash3'
 
 # gem "rails"
 
@@ -19,4 +20,5 @@ gem 'capybara'
 gem 'cucumber'
 gem 'cucumber-sinatra'
 gem 'database_cleaner'
+gem 'bcrypt-ruby'
 end
