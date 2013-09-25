@@ -25,6 +25,28 @@ post '/links' do
   redirect to('/')
 end
 
+post '/sessions' do
+  email,password = params[:email], params[:password]
+  user = User.authenticate(email,password)
+  if user
+    session[:user_id] = user.id
+    redirect to('/')
+  else 
+    flash[:errors] = ["The email or passwords is incorrect"]
+    erb :"sessions/new"
+  end
+end
+
+delete '/sessions' do
+  flash[:notice] = "Goodbye"
+  session[:user_id] = nil
+  redirect to('/')
+end
+
+get '/sessions/new' do 
+  erb :"sessions/new"
+end
+
 get '/tags/:text' do
   tag = Tag.first(:text => params[:text])
   @links = tag ? tag.links : []
@@ -50,7 +72,7 @@ post '/users' do
     session[:user_id] = @user.id
     redirect to('/')
   else 
-    flash[:notice] = "Sorry, your passwords don't match"
+    flash.now[:errors] = @user.errors.full_messages
     erb :"users/new"
   end
 end
