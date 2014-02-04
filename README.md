@@ -2,11 +2,13 @@ Bookmark
 ========
 
 A basic bookmarking app like pineapple.io
-Aim was to continue learning web apps and now with javascript
+
+The aim was to continue learning web apps and now with javascript
 
 Built with Sinatra framework and postgresql database.
-Javascript, Jquery
-Ruby
+- Javascript
+- Jquery
+- Ruby
 
 Basic functionality:
 Add links
